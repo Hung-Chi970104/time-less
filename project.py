@@ -23,12 +23,24 @@ class Stage(Target):
         self.pen = Pen(self)
 
         self.costume = Costumes(
-           0, 100, "None", [
+           2, 100, "None", [
             {
                 'name': "backdrop1",
                 'path': "cd21514d0531fdffb22204e0ec5ed84a.svg",
                 'center': (240, 180),
                 'scale': 2
+            },
+            {
+                'name': "3",
+                'path': "903d1c68c0bb3b143165ac0ceb0d8779.png",
+                'center': (480, 360),
+                'scale': 2
+            },
+            {
+                'name': "",
+                'path': "bdfb2ac558f5684ac798f3638c09f932.svg",
+                'center': (268, 180),
+                'scale': 1
             }
         ])
 
@@ -41,9 +53,12 @@ class Stage(Target):
         ])
 
         self.var_tableX = 0
-        self.var_speed = 288.5000000000007
+        self.var_speed = 0
         self.var_acceleration = 0.3
-        self.var_friction = 0
+        self.var_friction = 0.95
+        self.var_walkingFrame = 0
+        self.var_gravitationalacceleration = 0
+        self.var_downwardspeed = 0
 
 
 
@@ -64,11 +79,11 @@ class Spritered(Target):
         self._xpos = -65
         self._ypos = -7
         self._direction = 90
-        self.shown = True
+        self.shown = False
         self.pen = Pen(self)
 
         self.costume = Costumes(
-           0, 125, "all around", [
+           14, 125, "all around", [
             {
                 'name': "front1",
                 'path': "574df75638e438128433a157c195bd16.png",
@@ -122,6 +137,42 @@ class Spritered(Target):
                 'path': "bc0185cbdb0be5e6a5605d8b10379c25.png",
                 'center': (32, 32),
                 'scale': 2
+            },
+            {
+                'name': "",
+                'path': "c6756be332b7e5d6c558af3beed62b09.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "2",
+                'path': "f60a099726199ee5bf73f698bbc3d3c1.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "3",
+                'path': "f8c764261e1c75e9b173b1abdc022015.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "4",
+                'path': "65abb7c836e84f0dbb2152f620f05eb9.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "5",
+                'path': "86a1422fb87bf331a14d6f345d54b23b.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "6",
+                'path': "ca5de5245e030bb44c6e2f8cd12db393.png",
+                'center': (16, 20),
+                'scale': 2
             }
         ])
 
@@ -148,14 +199,14 @@ class Spriteblue(Target):
         if parent is not None:
             return
 
-        self._xpos = 245
-        self._ypos = 45
+        self._xpos = 111.63701412680314
+        self._ypos = 51
         self._direction = 90
         self.shown = True
         self.pen = Pen(self)
 
         self.costume = Costumes(
-           6, 125, "don't rotate", [
+           9, 125, "left-right", [
             {
                 'name': "front_walk1",
                 'path': "65aba051701c859896ace011e7a35e1d.png",
@@ -209,6 +260,126 @@ class Spriteblue(Target):
                 'path': "e2e0bce80d3bd1ec86255172a024f869.png",
                 'center': (32, 32),
                 'scale': 2
+            },
+            {
+                'name': "",
+                'path': "19e26bdd3d058067798e5163b4b75c6b.png",
+                'center': (17, 21),
+                'scale': 2
+            },
+            {
+                'name': "2",
+                'path': "d77749c16e7acc699f7f256705b37e8f.png",
+                'center': (17, 21),
+                'scale': 2
+            },
+            {
+                'name': "3",
+                'path': "c1a0bedd21353858d1de76325e60986e.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "4",
+                'path': "0a447791758a6840f21df275d8fbd906.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "5",
+                'path': "8e7cb5fa8b5fa62101eb86fd47705422.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "6",
+                'path': "fa4d35ef341519280f785b73ba0600a1.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "7",
+                'path': "3522bbc838d1eeb42c373976a9d1970b.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "8",
+                'path': "aae78f43a71b994c3b3829851f07ed37.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "9",
+                'path': "401dd966e283a4ea7b2e5322091a73db.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "10",
+                'path': "ef148eda63aa09827efb1a24e7c98f70.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "11",
+                'path': "a0611caee4bbc37ced4240dbf0bb7c86.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "12",
+                'path': "57ede8d2ab9eba7a316afd6101faba88.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "13",
+                'path': "9da003d467d96a5f6f9472c0b76e1177.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "14",
+                'path': "040536dce74a3b73b9d9f5c8166ec475.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "15",
+                'path': "554990957f2fdd2abcf01fad2c8e85db.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "16",
+                'path': "95d5c8bf868cfae5288d64dfeea228d9.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "17",
+                'path': "90f1afe4f15e8fa5e9212b5d5a0004b8.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "18",
+                'path': "9300e0fd9074b224e43b7bdcf3595d15.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "19",
+                'path': "d559bc43e3677db73b9f94f7d3bee9c7.png",
+                'center': (16, 20),
+                'scale': 2
+            },
+            {
+                'name': "20",
+                'path': "05af998edd36bb3f9029df104d181d0e.png",
+                'center': (16, 20),
+                'scale': 2
             }
         ])
 
@@ -217,8 +388,7 @@ class Spriteblue(Target):
 
         ])
 
-        self.var_heading_direction = "right"
-        self.var_moving = 0
+        self.var_heading_direction = "up"
 
 
 
@@ -226,50 +396,37 @@ class Spriteblue(Target):
 
     @on_green_flag
     async def green_flag(self, util):
-        self.costume.rotation_style = 'don\'t rotate'
         self.costume.size = 125
+        self.costume.rotation_style = 'left-right'
         while True:
             if util.inputs["w"]:
                 self.var_heading_direction = "up"
                 self.ypos += 3
             else:
                 if util.inputs["a"]:
-                    self.var_heading_direction = "left"
                     self.direction = -90
-                    self.xpos += (util.sprites.stage.var_speed * -1)
-                    if lt(util.sprites.stage.var_speed, abs(5)):
-                        util.sprites.stage.var_speed += util.sprites.stage.var_acceleration
+                    self.xpos += -3
                 else:
                     if util.inputs["d"]:
-                        self.var_heading_direction = "right"
                         self.direction = 90
-                        self.xpos += util.sprites.stage.var_speed
-                        if lt(util.sprites.stage.var_speed, abs(5)):
-                            util.sprites.stage.var_speed += util.sprites.stage.var_acceleration
+                        self.xpos += 3
                     else:
                         if util.inputs["s"]:
-                            self.var_heading_direction = "down"
                             self.ypos += -3
-                        else:
-                            util.sprites.stage.var_speed = 0
 
             await self.yield_()
 
     @on_green_flag
     async def green_flag1(self, util):
-        util.sprites.stage.var_acceleration = 0.3
-        util.sprites.stage.var_speed = 0
         while True:
-            if self.get_touching(util, "table"):
-                self.xpos = (util.sprites.stage.var_tableX - 14)
-
-            await self.yield_()
-
-    @on_green_flag
-    async def green_flag2(self, util):
-        while True:
-            if eq(self.var_heading_direction, "up"):
-                pass
+            if (util.inputs["a"] or util.inputs["d"]):
+                self.costume.switch("right_walk1")
+            else:
+                if util.inputs["w"]:
+                    self.costume.switch("back_walk1")
+                else:
+                    if util.inputs["s"]:
+                        self.costume.switch("front_walk1")
 
             await self.yield_()
 
@@ -389,7 +546,7 @@ class Spritetable(Target):
         self._xpos = 0
         self._ypos = 0
         self._direction = 90
-        self.shown = True
+        self.shown = False
         self.pen = Pen(self)
 
         self.costume = Costumes(
